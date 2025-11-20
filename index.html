@@ -3,75 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sua ÚLTIMA Chance!</title>
+    <!-- O título é focado na urgência da oferta -->
+    <title>ESPERE! Uma Oferta Especial para Você</title>
     
+    <!-- Favicon (o mesmo da página principal) -->
     <link rel="icon" href="https://i.imgur.com/RZR1gMI.png" type="image/png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap" rel="stylesheet">
     
+    <!-- Scripts e Fontes (os mesmos da página principal) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Estilos (os mesmos da página principal) -->
     <style>
-        body { font-family: 'Raleway', sans-serif; }
-        
-        /* Animação de atenção */
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
-            20%, 40%, 60%, 80% { transform: translateX(4px); }
+        html {
+            scroll-behavior: smooth;
         }
-        .shake-anim { animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) both; }
+        body {
+            font-family: 'Raleway', sans-serif;
+            color: #333;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        html, body {
+            width: 100%;
+            height: 100%; /* Garante que a página ocupe a tela inteira */
+            overflow-x: hidden;
+        }
+        
+        :root {
+            --color-primary: #0D9488; /* Teal (Azul-Petróleo) */
+            --color-primary-light: #F0FDFA; /* Teal (Fundo) */
+            --color-secondary: #F97316; /* Coral/Laranja (CTA) */
+            --color-text-dark: #1E293B; /* Cinza Escuro (Texto) */
+            --color-text-light: #475569; /* Cinza (Texto Secundário) */
+            --color-telegram: #2AABEE; /* Azul Telegram */
+        }
+
+        .text-primary { color: var(--color-primary); }
+        .bg-primary-light { background-color: var(--color-primary-light); }
+        .border-primary { border-color: var(--color-primary); }
+        
+        .btn-cta {
+            background-color: var(--color-secondary);
+            color: white;
+            font-weight: 700;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px 0 rgba(249, 115, 22, 0.3);
+        }
+        .btn-cta:hover {
+            background-color: #FB923C; /* Laranja mais claro no hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px 0 rgba(249, 115, 22, 0.4);
+        }
+
+        /* Animação para o "Espere!" */
+        @keyframes pulse-red {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+        }
+        .pulse-red {
+            animation: pulse-red 2s infinite;
+        }
     </style>
 </head>
-<body class="bg-gray-900 flex flex-col min-h-screen text-white">
+<!-- 
+    MUDANÇA: 
+    - O body agora usa 'flex flex-col' para criar um layout de coluna.
+    - 'min-h-screen' garante que o body ocupe pelo menos a altura da tela.
+    - 'p-4' foi removido daqui e movido para o 'div' abaixo.
+-->
+<body class="bg-primary-light flex flex-col min-h-screen">
 
+    <!-- 
+        Wrapper para centralizar o card (main)
+        - 'flex-grow': Faz este div ocupar todo o espaço disponível, empurrando o footer para baixo.
+        - 'flex items-center justify-center': Centraliza o card (main) verticalmente e horizontalmente.
+        - 'p-4': Adiciona o padding que estava no body.
+    -->
     <div class="flex-grow flex items-center justify-center p-4">
-        <main class="bg-white text-gray-800 p-8 md:p-12 rounded-2xl shadow-2xl max-w-lg w-full text-center relative overflow-hidden">
+        <!-- Card Central da Oferta -->
+        <main class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl max-w-2xl w-full text-center border-t-8 border-primary">
             
-            <!-- Faixa de aviso no topo do card -->
-            <div class="absolute top-0 left-0 w-full bg-red-600 text-white text-xs font-bold py-2 uppercase tracking-widest">
-                ⚠️ Atenção: Esta tela não aparecerá novamente
-            </div>
+            <!-- Título de Urgência -->
+            <h1 class="text-3xl md:text-5xl font-extrabold text-red-600 pulse-red">
+                ESPERE!
+            </h1>
+            
+            <h2 class="text-2xl md:text-3xl font-bold text-text-dark mt-4">
+                Você está a um passo de sair...
+            </h2>
+            
+            <p class="text-lg text-text-light mt-4 max-w-lg mx-auto">
+                Vimos que você se interessou pelo Pack, e por isso liberamos um <strong>desconto exclusivo e único</strong> para você não perder esta chance.
+            </p>
 
-            <div class="mt-6">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-red-600 mb-2 leading-tight">
-                    VOCÊ FICOU MALUCO?
-                </h1>
-                <p class="text-gray-500 text-sm font-semibold uppercase tracking-wide mb-6">Não vá embora de mãos vazias!</p>
-                
-                <p class="text-lg mb-6">
-                    Ok, eu entendo que você está em dúvida. Mas eu confio tanto nesse material que vou fazer uma <strong>loucura</strong> para você entrar agora.
-                </p>
-                
-                <div class="bg-yellow-50 border-2 border-yellow-400 border-dashed rounded-xl p-6 mb-8 relative">
-                    <!-- Etiqueta de desconto -->
-                    <div class="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md shake-anim">
-                        OFFERTA FINAL
-                    </div>
+            <!-- Logo para reforçar a marca -->
+            <!-- <img src="https://i.imgur.com/xkbXLug.png" alt="Logo Insta Criativo Pack" class="w-48 mx-auto my-6"> -->
+            <!-- Logo Removida conforme solicitado -->
 
-                    <p class="text-sm text-gray-500 mb-1">Leve TUDO agora por apenas:</p>
-                    <div class="flex items-center justify-center gap-3">
-                        <span class="text-gray-400 line-through text-2xl font-bold">R$14,97</span>
-                        <span class="text-green-600 text-5xl font-extrabold">R$9,97</span>
-                    </div>
-                    <p class="text-xs text-gray-400 mt-2">É menos que um cafezinho na padaria!</p>
+            <!-- A Nova Oferta -->
+            <!-- Adicionado 'mt-8' para dar um espaço após a remoção da logo -->
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 mt-8">
+                <h3 class="text-xl font-semibold text-text-dark">Acesso Vitalício + Bônus por:</h3>
+                
+                <div class="flex items-baseline justify-center gap-4 mt-3">
+                    <!-- Preço Original (da página anterior) -->
+                    <span class="text-gray-400 line-through text-3xl md:text-4xl font-bold">R$19,97</span>
+                    
+                    <!-- Novo Preço com Desconto -->
+                    <span class="text-primary text-4xl md:text-6xl font-extrabold">R$14,97</span>
                 </div>
-
-                <!-- Botão com o NOVO link de checkout (R$ 9,97) -->
-                <a href="https://www.ggcheckout.com/checkout/v2/hZ7qnpx12dtt22EPav4H" class="block w-full bg-green-600 hover:bg-green-700 text-white font-bold text-xl py-4 rounded-lg shadow-lg transform transition hover:scale-105 hover:shadow-xl">
-                    QUERO APROVEITAR AGORA!
-                    <span class="block text-xs font-normal opacity-90 mt-1">Acesso Imediato + Bônus Inclusos</span>
-                </a>
+                <p class="mt-2 text-text-light font-medium">Pagamento único, sem mensalidades.</p>
             </div>
 
-            <!-- Link final de saída -->
-            <div class="mt-6 border-t border-gray-100 pt-6">
-                <a href="javascript:window.close();" onclick="window.location.href='about:blank';" class="text-xs text-gray-400 hover:text-gray-600 underline">
-                    Sério, não quero economizar e nem melhorar meu perfil. Pode fechar.
+            <!-- Botão de Ação (CTA) -->
+            <a href="https://www.ggcheckout.com/checkout/v2/0T2wHflvMz3nApnaYYTe" class="btn-cta inline-flex items-center justify-center px-10 py-4 text-xl rounded-lg mt-8 w-full md:w-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                SIM! QUERO O DESCONTO EXCLUSIVO
+            </a>
+            
+            <p class="text-sm text-green-600 font-semibold mt-4">
+                (Você ainda recebe TODOS os bônus + Acesso Vitalício!)
+            </p>
+
+            <!-- Link de Saída (menos destaque) -->
+            <div class="mt-8">
+                <a href="javascript:window.close();" onclick="window.location.href='about:blank';" class="text-text-light hover:text-text-dark text-sm underline transition-colors">
+                    Não, obrigado. Prefiro perder a oferta.
                 </a>
             </div>
+            
         </main>
-    </div>
+    </div> <!-- Fim do wrapper flex-grow -->
 
-    <footer class="text-center text-gray-500 text-xs py-6">
+    <!-- 
+        Footer Simples 
+        - MUDANÇA: Não é mais 'fixed'.
+        - É um item flex que fica no final da coluna.
+        - 'py-4' (padding) garante espaço.
+    -->
+    <footer class="text-center text-text-light text-xs py-4">
         © 2025 - Beatriz Lira - Digital
     </footer>
 
